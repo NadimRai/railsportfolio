@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'friendly_id', '~> 5.2'
 gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'dotenv-rails', '~> 2.2', '>= 2.2.1'
+gem 'stripe', '~> 2.9', :git => 'https://github.com/stripe/stripe-ruby'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
