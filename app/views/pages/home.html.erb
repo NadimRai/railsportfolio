@@ -1,11 +1,9 @@
 <h1>Hi, <%= current_user.first_name %></h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-
-<h1>Blog</h1>
-<%= @posts.inspect %><br>
-
-<h1>SKills</h1>
-<%= @skills.inspect %>
+<section id="content-details" class="row clearfix">
+  <article id="details-article" class="col-sm-8">
+    <h1 id="article-title"><%= @product.title %><span class="font-weight-light"><%= @product.subtitle %></span></h1>
+    <%= raw @product.description %>
+  </article>
 
 <%= form_tag charges_path, id:'chargeForm' do %>
 
@@ -17,7 +15,7 @@
 
                   <script src="https://checkout.stripe.com/checkout.js"></script>
                   <%= hidden_field_tag 'stripeToken' %>
-                  <%= hidden_field_tag 'amount', 499 %>
+                  <%= hidden_field_tag 'amount', @product.price_in_cents %>
                   <%= hidden_field_tag 'stripeEmail' %>
                   <button id="btn-buy" type="button" class="btn btn-success btn-lg btn-block"><span class="glyphicon glyphicon-ok"></span>Buy this!</button>
 <script>
@@ -32,10 +30,11 @@
 document.getElementById('btn-buy').addEventListener('click', function(e) {
       handler.open({
         name: 'Learn Rails',
-        description: 'Buy This',
+        description: '<%= @product.title %> ($<%= @product.price %>)',
         amount: document.getElementById("amount").value
     });
     e.preventDefault();
    })
 </script>
 <% end %>
+</section>
