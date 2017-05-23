@@ -33,6 +33,9 @@ gem 'devise', '~> 4.2', '>= 4.2.1'
 gem 'stripe', '~> 2.9', :git => 'https://github.com/stripe/stripe-ruby'
 gem 'figaro', '~> 1.1', '>= 1.1.1'
 
+gem 'activeadmin', '~> 1.0', github: 'activeadmin'
+gem 'inherited_resources', '~> 1.7', '>= 1.7.2', github: 'activeadmin/inherited_resources'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
