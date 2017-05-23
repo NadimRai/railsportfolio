@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get 'portfolio/:id', to: 'portfolios#show', as: 'portfolio_show'
 
   resources :charges
-  
+  resources :purchases, only: [:show]
 
   get 'about', to: 'pages#about'
 
